@@ -9,6 +9,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+container: mcr.microsoft.com/dotnet/sdk:6.0
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
