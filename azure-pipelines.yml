@@ -29,4 +29,4 @@ steps:
     containerRegistry: 'DevOpsRegistry'
     repository: '$(imageName)'
     command: 'buildAndPush'
-    Dockerfile: '$(Build.SourcesDirectory)/services/Accounts/'
+    Dockerfile: '$(Build.SourcesDirectory)/services/Accounts/Dockerfile'
