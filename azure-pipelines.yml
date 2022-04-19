@@ -11,11 +11,8 @@ pool:
 
 container: mcr.microsoft.com/dotnet/sdk:6.0
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    dotnet --version
+    dotnet --list-sdks
+    dotnet --list-runtimes
+  displayName: 'Display dotnet versions'
