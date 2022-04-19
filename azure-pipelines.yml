@@ -4,7 +4,12 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include:
+      - main
+  paths:
+     include:
+       - "services/Accounts/*"
 
 pool:
   vmImage: ubuntu-latest
@@ -17,3 +22,7 @@ steps:
     dotnet --list-sdks
     dotnet --list-runtimes
   displayName: 'Display dotnet versions'
+
+- script: dotnet publish -c Release -o "services/Accounts/"
+  displayName: 'Publish executables'
+  
