@@ -23,6 +23,6 @@ steps:
     dotnet --list-runtimes
   displayName: 'Display dotnet versions'
 
-- script: dotnet publish -c Release -o output "services/Accounts/"
+- script: dotnet publish -c Release -o "$(Build.BinariesDirectory)/output" "$(Build.SourcesDirectory)/services/Accounts/"
   displayName: 'Publish executables'
   
