@@ -23,9 +23,6 @@ steps:
     dotnet --list-runtimes
   displayName: 'Display dotnet versions'
 
-- script: ls -lAR /
-  displayName: 'List all directories'
-
-- script: dotnet publish -c Release -o "/home/vsts/work/1/b/output" "/home/vsts/work/1/s/services/Accounts/"
+- script: dotnet publish -c Release -o "$(Build.BinariesDirectory)/output" "$(Build.SourcesDirectory)/services/Accounts/"
   displayName: 'Publish executables'
   
