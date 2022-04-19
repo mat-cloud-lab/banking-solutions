@@ -34,4 +34,4 @@ steps:
     repository: '$(imageName)'
     command: 'buildAndPush'
     Dockerfile: '$(Build.SourcesDirectory)/services/Accounts/Dockerfile'
-    tags: latest,test
+    tags: latest,$(Build.BuildNumber)
