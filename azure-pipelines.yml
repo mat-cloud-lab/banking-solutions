@@ -17,8 +17,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-container: mcr.microsoft.com/dotnet/sdk:6.0
-
 steps:
 - script: |
     dotnet --version
@@ -27,8 +25,8 @@ steps:
   displayName: 'Display dotnet versions'
 
 - task: Docker@2
-  displayName: Build an image
   inputs:
-    repository: "$(Build.SourcesDirectory)/services/Accounts/"
-    command: build
-    Dockerfile: app/Dockerfile
+    containerRegistry: 'DevOpsRegistry'
+    repository: '$(imageName)'
+    command: 'buildAndPush'
+    Dockerfile: '$(Build.SourcesDirectory)/services/Accounts/'
