@@ -37,8 +37,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="C:\Users\Mateusz\Documents\accounts_swagger.json" CodeGenerator="NSwagCSharp" Link="OpenAPIs\accounts_swagger.json" />
-    <OpenApiReference Include="C:\Users\Mateusz\Documents\customers_swagger.json" CodeGenerator="NSwagCSharp" Link="OpenAPIs\customers_swagger.json" />
+    <OpenApiReference Include="OpenAPIs\accounts_swagger.json" CodeGenerator="NSwagCSharp" />
+    <OpenApiReference Include="OpenAPIs\customers_swagger.json" CodeGenerator="NSwagCSharp" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
