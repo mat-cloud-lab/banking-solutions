@@ -1,8 +1,17 @@
+using BankingPortal;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+var config = builder.Configuration.Get<Configuration>();
+
+builder.Services.AddSingleton<accounts_swaggerClient>(
+    new accounts_swaggerClient(config.AccountsUri, new HttpClient()));
+builder.Services.AddSingleton<customers_swaggerClient>(
+    new customers_swaggerClient(config.CustomersUri, new HttpClient()));
 
 var app = builder.Build();
 
