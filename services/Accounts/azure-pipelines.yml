@@ -9,6 +9,7 @@ variables:
 trigger:
   branches:
     include:
+      - azure-pipelines-dev
       - main
   paths:
      include:
