@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+variables:
+  imageName: 'services-banking-portal'
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+     include:
+       - "services/BankingPortal/*"
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    dotnet --version
+    dotnet --list-sdks
+    dotnet --list-runtimes
+  displayName: 'Display dotnet versions'
+
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DevOpsRegistry'
+    repository: '$(imageName)'
+    command: 'buildAndPush'
+    Dockerfile: '$(Build.SourcesDirectory)/services/BankingPortal/Dockerfile'
+    tags: latest,v.$(Build.BuildNumber)
