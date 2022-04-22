@@ -12,6 +12,7 @@ builder.Services.AddSingleton<accounts_swaggerClient>(
     new accounts_swaggerClient(config.AccountsUri, new HttpClient()));
 builder.Services.AddSingleton<customers_swaggerClient>(
     new customers_swaggerClient(config.CustomersUri, new HttpClient()));
+builder.Services.AddApplicationInsightsTelemetry();
 
 var app = builder.Build();
 
