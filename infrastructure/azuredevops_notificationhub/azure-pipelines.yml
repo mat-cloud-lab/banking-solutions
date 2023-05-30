@@ -18,6 +18,7 @@ stages:
         displayName: Setup azure authentication
         inputs:
           scriptType: bash
+          addSpnToEnvironment: true
           azureSubscription: ${{ parameters.serviceConnection }}
           scriptLocation: inlineScript
           failOnStandardError: true
