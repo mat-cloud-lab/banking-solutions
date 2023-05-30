@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "233316182226",
+    "project_id": "banking-solutions-app",
+    "storage_bucket": "banking-solutions-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233316182226:android:29db05ea5248f919a5650b",
+        "android_client_info": {
+          "package_name": "com.bankingsolutions.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr-q6FyYqcGLTiqrAUMX32d3DWE0rBemo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,6 +3,15 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Private with credentials
+*.Private.json
+
+# Terraform
+.terraform.lock.hcl
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+
 # User-specific files
 *.rsuser
 *.suo
