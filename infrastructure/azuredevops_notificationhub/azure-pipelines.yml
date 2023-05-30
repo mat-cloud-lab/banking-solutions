@@ -1,0 +1,72 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Plan
+  jobs:
+    - job: Plan
+      steps:
+      - task: AzureCLI@2
+        displayName: Setup azure authentication
+        inputs:
+          inlineScript: |
+            echo "##evso[task.setvariable variable=ARM_SUBSCRIPTION_ID]$(az account show --query="id" -o tsv)"
+            echo "##evso[task.setvariable variable=ARM_CLIENT_ID]${servicePrincipalId}"
+            echo "##evso[task.setvariable variable=ARM_CLIENT_SECRET]${servicePrincipalKey}"
+            echo "##evso[task.setvariable variable=ARM_TENANT_ID]$(az account show --query="tenantId" -o tsv)"
+      
+      #- task: TerraformTaskV3@3
+      #  displayName: Initialize Terraform
+      #  inputs:
+      #    provider: 'azurerm'
+      #    command: 'init'
+      #    backendServiceArm: 'lab-05'
+      #    backendAzureRmResourceGroupName: 'mb-student5'
+      #    backendAzureRmStorageAccountName: 'mbstudent5tfstate'
+      #    backendAzureRmContainerName: 'tfstate'
+      #    backendAzureRmKey: 'devops.tfstate'
+      #
+      #- task: TerraformTaskV3@3
+      #  name: terraformPlan
+      #  displayName: Create Terraform Plan
+      #  inputs:
+      #    provider: 'azurerm'
+      #    command: 'plan'
+      #    commandOptions: '-out main.tfplan'
+      #    environmentServiceNameAzureRM: 'lab-05'
+
+#- stage: Execute
+# Only runs if the 'terraformPlan' task has detected changes the in state. 
+#  condition: eq(variables['terraformPlan.changesPresent'], 'true')
+#  jobs:
+#    - deployment: 'Execute'
+#      environment: 'dev'
+#      strategy:
+#          runOnce:
+#            deploy:
+#              steps:
+#                - task: TerraformTaskV3@3
+#                  displayName: Initialize Terraform
+#                  inputs:
+#                    provider: 'azurerm'
+#                    command: 'init'
+#                    backendServiceArm: 'lab-05'
+#                    backendAzureRmResourceGroupName: 'mb-student5'
+#                    backendAzureRmStorageAccountName: 'mbstudent5tfstate'
+#                    backendAzureRmContainerName: 'tfstate'
+#                    backendAzureRmKey: 'devops.tfstate'
+#                - task: TerraformTaskV3@3
+#                  displayName: Apply Terraform Plan
+#                  inputs:
+#                    provider: 'azurerm'
+#                    command: 'apply'
+#                    commandOptions: 'main.tfplan'
+#                    environmentServiceNameAzureRM: 'lab-05'
