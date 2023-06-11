@@ -13,7 +13,7 @@ variables:
   - name: serviceConnection
     value: "connectivity-hub-connection"
   - name: workingDirectory
-    value: $(Build.Repository.LocalPath)/infrastructure/tarraform_notificationhub
+    value: $(Build.Repository.LocalPath)
 
 stages:
 - stage: Plan
@@ -50,6 +50,7 @@ stages:
           failOnStandardError: true
           inlineScript: |
             pwd
+            ls -laR
             terraform init -no-color -input=false
             chmod +x -R .terraform
             terraform validate
