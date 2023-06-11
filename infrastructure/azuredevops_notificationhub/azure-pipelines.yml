@@ -19,7 +19,7 @@ stages:
         inputs:
           scriptType: bash
           addSpnToEnvironment: true
-          connectedServiceNameARM: ${{ variables.serviceConnection }}
+          connectedServiceNameARM: "connectivity-hub-connection"
           scriptLocation: inlineScript
           failOnStandardError: true
           inlineScript: |
