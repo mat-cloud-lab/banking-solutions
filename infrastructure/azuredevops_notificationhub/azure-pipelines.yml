@@ -34,6 +34,7 @@ stages:
           rootDirectory: $(Build.Repository.LocalPath)/infrastructure/terraform_notificationhub
           targetFiles: |
             backend.tf
+          tokenPattern: custom
           tokenPrefix: "#{"
           tokenSuffix: "#}"
 
