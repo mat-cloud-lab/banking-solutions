@@ -72,6 +72,9 @@ stages:
             chmod +x -R .terraform
             terraform validate
       
+      - task: MicrosoftSecurityDevOps@1
+        inputs:
+          break: true
       #- task: TerraformTaskV3@3
       #  displayName: Initialize Terraform
       #  inputs:
