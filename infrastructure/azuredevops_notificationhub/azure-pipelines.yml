@@ -37,6 +37,7 @@ stages:
             echo "${servicePrincipalId}"
             echo "${servicePrincipalKey}"
             echo "$(az account show --query="tenantId" -o tsv)"
+            echo "${variables.workingDirectory}"
 
       - task: AzureCLI@2
         displayName: Terraform init
@@ -48,6 +49,7 @@ stages:
           scriptLocation: inlineScript
           failOnStandardError: true
           inlineScript: |
+            pwd
             terraform init -no-color -input=false
             chmod +x -R .terraform
             terraform validate
