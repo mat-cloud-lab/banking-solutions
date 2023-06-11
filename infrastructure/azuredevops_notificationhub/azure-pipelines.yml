@@ -37,7 +37,7 @@ stages:
             echo "${servicePrincipalId}"
             echo "${servicePrincipalKey}"
             echo "$(az account show --query="tenantId" -o tsv)"
-            echo "${variables.workingDirectory}"
+            echo "${{variables.workingDirectory}}"
 
       - task: AzureCLI@2
         displayName: Terraform init
