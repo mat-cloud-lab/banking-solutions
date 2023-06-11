@@ -19,7 +19,7 @@ stages:
         inputs:
           scriptType: bash
           addSpnToEnvironment: true
-          azureSubscription: ${{ variables.serviceConnection }}
+          connectedServiceNameARM: ${{ variables.serviceConnection }}
           scriptLocation: inlineScript
           failOnStandardError: true
           inlineScript: |
