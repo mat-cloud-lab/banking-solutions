@@ -14,14 +14,14 @@ variables:
     value: "connectivity-hub-connection"
   - name: workingDirectory
     value: $(Build.Repository.LocalPath)/infrastructure/terraform_notificationhub
-  - name: tfStateResourceGroupName
-    value: rg-we-prd-01-notification-hub-setup
-  - name: tfStateAzureStorageAccountName
-    value: notificationhubsetupprd01
-  - name: tfStateContainerName
-    value: tfstate
-  - name: tfStateFileName
-    value: terraform.tfstate
+  - name: 'tfStateResourceGroupName'
+    value: 'rg-we-prd-01-notification-hub-setup'
+  - name: 'tfStateAzureStorageAccountName'
+    value: 'notificationhubsetupprd01'
+  - name: 'tfStateContainerName'
+    value: 'tfstate'
+  - name: 'tfStateFileName'
+    value: 'terraform.tfstate'
 
 stages:
 - stage: Plan
