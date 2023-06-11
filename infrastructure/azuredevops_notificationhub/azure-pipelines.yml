@@ -31,7 +31,7 @@ stages:
       - task: qetza.replacetokens.replacetokens-task.replacetokens@3
         displayName: "Render backend"
         inputs:
-          rootDirectory: ${{ variables.workingDirectory }}
+          rootDirectory: $(Build.Repository.LocalPath)/infrastructure/terraform_notificationhub
           targetFiles: |
             backend.tf
           tokenPrefix: "#{"
