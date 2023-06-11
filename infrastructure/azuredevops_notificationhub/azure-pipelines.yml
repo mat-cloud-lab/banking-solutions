@@ -17,7 +17,7 @@ variables:
   - name: 'tfStateResourceGroupName'
     value: 'rg-we-prd-01-notification-hub-setup'
   - name: 'tfStateAzureStorageAccountName'
-    value: 'notificationhubsetupprd01'
+    value: 'notificationhubprd01'
   - name: 'tfStateContainerName'
     value: 'tfstate'
   - name: 'tfStateFileName'
