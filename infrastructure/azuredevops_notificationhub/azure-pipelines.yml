@@ -27,6 +27,10 @@ stages:
             echo "##vso[task.setvariable variable=ARM_CLIENT_ID]${servicePrincipalId}"
             echo "##vso[task.setvariable variable=ARM_CLIENT_SECRET]${servicePrincipalKey}"
             echo "##vso[task.setvariable variable=ARM_TENANT_ID]$(az account show --query="tenantId" -o tsv)"
+            echo "$(az account show --query="id" -o tsv)"
+            echo "${servicePrincipalId}"
+            echo "${servicePrincipalKey}"
+            echo "$(az account show --query="tenantId" -o tsv)"
       
       #- task: TerraformTaskV3@3
       #  displayName: Initialize Terraform
