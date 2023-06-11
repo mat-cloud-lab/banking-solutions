@@ -8,6 +8,10 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+  
+variables:
+  - name: serviceConnection
+    value: "connectivity-hub-connection"
 
 stages:
 - stage: Plan
@@ -19,7 +23,7 @@ stages:
         inputs:
           scriptType: bash
           addSpnToEnvironment: true
-          connectedServiceNameARM: "connectivity-hub-connection"
+          connectedServiceNameARM: ${{ variables.serviceConnection }}
           scriptLocation: inlineScript
           failOnStandardError: true
           inlineScript: |
