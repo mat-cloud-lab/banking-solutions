@@ -34,10 +34,8 @@ stages:
           rootDirectory: $(Build.Repository.LocalPath)/infrastructure/terraform_notificationhub
           targetFiles: |
             backend.tf
-          verbosity: detailed
-          tokenPattern: custom
           tokenPrefix: "#{"
-          tokenSuffix: "#}"
+          tokenSuffix: "}#"
 
       - task: AzureCLI@2
         displayName: Setup azure authentication
