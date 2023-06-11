@@ -13,7 +13,7 @@ variables:
   - name: serviceConnection
     value: "connectivity-hub-connection"
   - name: workingDirectory
-    value: $(Build.Repository.LocalPath)
+    value: $(Build.Repository.LocalPath)/infrastructure/terraform_notificationhub
 
 stages:
 - stage: Plan
